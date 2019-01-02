@@ -18,3 +18,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/ahorro', 'AhorroController@ahorroProgramado' );
+
+Route::get('/ahorro/nuevo', 'AhorroController@ahorroNuevo' );
+
+Route::post('/ahorro/guardar', 'AhorroController@ahorroGuardar' );
