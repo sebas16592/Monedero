@@ -28,6 +28,11 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function ahorro()
+    {
+        return $this->hasMany(Ahorro::class);
+    }
+
     public function roles()
     {
         return $this

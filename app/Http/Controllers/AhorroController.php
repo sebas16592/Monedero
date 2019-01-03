@@ -3,34 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Ahorro;
 
 class AhorroController extends Controller
 {
     function ahorroProgramado(){
 
-        $ahorros =[ 
-            [
-                'id' => 1,
-                'titulo' => 'San andres',
-                'image' => 'https://picsum.photos/420/320?image=0'
-            ],
-            [
-                'id' => 2,
-                'titulo' => 'Moto Hijo',
-                'image' => 'https://picsum.photos/420/320?image=1'
-            ],
-            [
-                'id' => 3,
-                'titulo' => 'Casa propia',
-                'image' => 'https://picsum.photos/420/320?image=2'
-            ],
-            [
-                'id' => 4,
-                'titulo' => 'Play 4',
-                'image' => 'https://picsum.photos/420/320?image=3'
-            ]
-        ];
-
+        $ahorros = Ahorro::all();
         return view('ahorro.lista',['ahorros'=>$ahorros]);
     }
 
@@ -39,7 +18,14 @@ class AhorroController extends Controller
     }
 
     function ahorroGuardar(Request $request){
-        dd($request->request);
+        $user = $request->user();
+        $ahorro = Ahorro::create([
+            'user_id' => $user->id,
+            'nombre' => $request->input('nombre'),
+            'anos' => $request->input('anos'),
+            'ahorrado' => 0,
+            'total' => $request->input('total'),
+        ]);
         return view('ahorro.nuevo');
     }
 }
