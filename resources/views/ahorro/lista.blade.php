@@ -38,7 +38,7 @@
                             <td>{{ $ahorro->nombre }}</td>
                             <td>{{ $ahorro->ahorrado }}</td>
                             <td>{{ $ahorro->total }}</td>
-                            <td></td>
+                            <td>{{ $ahorro->fecha }}</td>
                             <td><a href="" class="btn btn-primary"></a></td>
                         </tr>
                     @empty
