@@ -29,6 +29,10 @@ class AhorroController extends Controller
     }
 
     function ahorroVer(Ahorro $ahorro,Request $request){
-        return view('ahorro.ver',['ahorro'=>$ahorro]);
+        $carbon2 = new \Carbon\Carbon($ahorro->fecha);
+        $carbon1 = new \Carbon\Carbon(date('Y-m-d'));
+        $diasrestantes=$carbon1->diffInDays($carbon2);
+        $diario=($ahorro->total-$ahorro->ahorrado)/$diasrestantes;
+        return view('ahorro.ver',['ahorro'=>$ahorro,'restantes'=>$diasrestantes,'diario'=>$diario]);
     }
 }
