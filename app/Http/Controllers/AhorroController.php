@@ -8,7 +8,6 @@ use App\Ahorro;
 class AhorroController extends Controller
 {
     function ahorroProgramado(){
-
         $ahorros = Ahorro::all();
         return view('ahorro.lista',['ahorros'=>$ahorros]);
     }
@@ -26,7 +25,10 @@ class AhorroController extends Controller
             'ahorrado' => 0,
             'total' => $request->input('total'),
         ]);
-        $ahorros = Ahorro::all();
-        return view('ahorro.lista',['ahorros'=>$ahorros]);
+        return redirect('ahorro');
+    }
+
+    function ahorroVer(Ahorro $ahorro,Request $request){
+        return view('ahorro.ver',['ahorro'=>$ahorro]);
     }
 }
