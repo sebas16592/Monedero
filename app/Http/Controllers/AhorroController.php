@@ -19,13 +19,14 @@ class AhorroController extends Controller
 
     function ahorroGuardar(Request $request){
         $user = $request->user();
-        $ahorro = Ahorro::create([
+        Ahorro::create([
             'user_id' => $user->id,
             'nombre' => $request->input('nombre'),
-            'anos' => $request->input('anos'),
+            'fecha' => $request->input('fecha'),
             'ahorrado' => 0,
             'total' => $request->input('total'),
         ]);
-        return view('ahorro.nuevo');
+        $ahorros = Ahorro::all();
+        return view('ahorro.lista',['ahorros'=>$ahorros]);
     }
 }

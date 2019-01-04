@@ -16,7 +16,7 @@
             </div>
             <div class="col-6">
                 <label for="total">En cuántos años quieres alcanzarlo?</label>
-                <input type="number" class="form-control" id="anos" name="anos" placeholder="En cuánto tiempo quieres alcanzarlo?">
+                <input type="date" class="form-control" id="fecha" name="fecha" placeholder="En cuánto tiempo quieres alcanzarlo?">
             </div>
             
         </div> 
