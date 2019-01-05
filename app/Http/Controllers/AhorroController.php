@@ -35,4 +35,10 @@ class AhorroController extends Controller
         $diario=($ahorro->total-$ahorro->ahorrado)/$diasrestantes;
         return view('ahorro.ver',['ahorro'=>$ahorro,'restantes'=>$diasrestantes,'diario'=>$diario]);
     }
+
+    function ahorroVerGuardar(Ahorro $ahorro,Request $request){
+        $ahorro->ahorrado=$ahorro->ahorrado+$request->input('ahorro');
+        $ahorro->save();
+        return redirect('ahorro/ver/'.$ahorro->id);
+    }
 }

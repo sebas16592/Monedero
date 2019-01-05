@@ -28,5 +28,19 @@
                 Ahorro diario: {{ $diario }}
             </div>
         </div>
+        <form action="/ahorro/ver/{{ $ahorro->id }}/guardar" method="POST">
+            {{ csrf_field() }}
+            <div class="form-group row">
+                <div class="col-6">
+                    <label for="total">Agregar al ahorro</label>
+                    <input type="number" class="form-control" id="ahorro" name="ahorro" placeholder="Cuánto dinero quieres agregar?">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <button class="btn btn-primary">Guardar</button>
+                </div>
+            </div>
+        </form>
     </div>
 @endsection
