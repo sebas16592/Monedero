@@ -26,3 +26,5 @@ Route::get('/ahorro/nuevo', 'AhorroController@ahorroNuevo' );
 Route::post('/ahorro/guardar', 'AhorroController@ahorroGuardar' );
 
 Route::get('/ahorro/ver/{ahorro}', 'AhorroController@ahorroVer');
+
+Route::post('/ahorro/ver/{ahorro}/guardar', 'AhorroController@ahorroVerGuardar' );
