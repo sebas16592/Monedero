@@ -21,9 +21,9 @@
             
         </div> 
         <div class="row">
-                <div class="col-6">
-                        <button class="btn btn-primary">Guardar</button>
-                    </div>
+            <div class="col-6">
+                <button class="btn btn-primary">Guardar</button>
+            </div>
         </div>
            
     </form>

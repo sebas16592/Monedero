@@ -16,10 +16,10 @@
                 Falta: {{ $ahorro->total-$ahorro->ahorrado }}
             </div>
             <div class="col-6">
-                Fecha de creacion: {{ $ahorro->created_at->format('Y-m-d') }}
+                Fecha de creacion: {{ $ahorro->created_at->format('d/m/Y') }}
             </div>
             <div class="col-6">
-                Fecha de finalizacion: {{ $ahorro->fecha }}
+                Fecha de finalizacion: {{ \Carbon\Carbon::parse($ahorro->fecha)->format('d/m/Y') }}
             </div>
             <div class="col-6">
                 Dias faltantes para la meta: {{ $restantes }}
