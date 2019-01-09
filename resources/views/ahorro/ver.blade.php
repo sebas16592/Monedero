@@ -42,5 +42,32 @@
                 </div>
             </div>
         </form>
+        <div class="row">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Ahorrado</th>
+                    <th>Meta</th>
+                    <th>Fecha</th>
+                    <th>Detalle</th>
+                </tr>
+                </thead>
+                <tbody>
+                @forelse($ahorroDetalle as $detalle)
+                    <tr>
+                        <td>{{ $detalle->id }}</td>
+                        <td>{{ number_format($detalle->valor) }}</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                @empty
+                    <p>No hay ahorros programados</p>
+                @endforelse
+
+                </tbody>
+            </table>
+        </div>
     </div>
 @endsection
