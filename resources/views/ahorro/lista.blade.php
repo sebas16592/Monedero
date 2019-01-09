@@ -23,8 +23,8 @@
                     @forelse($ahorros as $ahorro)
                         <tr>
                             <td>{{ $ahorro->nombre }}</td>
-                            <td>{{ $ahorro->ahorrado }}</td>
-                            <td>{{ $ahorro->total }}</td>
+                            <td>{{ number_format($ahorro->ahorrado) }}</td>
+                            <td>{{ number_format($ahorro->total) }}</td>
                             <td>{{ \Carbon\Carbon::parse($ahorro->fecha)->format('d/m/Y') }}</td>
                             <td><a href="ahorro/ver/{{ $ahorro->id }}" class="btn btn-primary"><i class="fas fa-plus-circle"></i></a></td>
                         </tr>

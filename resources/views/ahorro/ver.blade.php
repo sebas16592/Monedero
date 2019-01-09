@@ -7,13 +7,13 @@
                 {{ $ahorro->nombre }}
             </div>
             <div class="col-6">
-                Meta: {{ $ahorro->total }}
+                Meta: {{ number_format($ahorro->total) }}
             </div>
             <div class="col-6">
-                Ahorrado: {{ $ahorro->ahorrado }}
+                Ahorrado: {{ number_format($ahorro->ahorrado) }}
             </div>
             <div class="col-6">
-                Falta: {{ $ahorro->total-$ahorro->ahorrado }}
+                Falta: {{ number_format($ahorro->total-$ahorro->ahorrado) }}
             </div>
             <div class="col-6">
                 Fecha de creacion: {{ $ahorro->created_at->format('d/m/Y') }}
@@ -25,7 +25,7 @@
                 Dias faltantes para la meta: {{ $restantes }}
             </div>
             <div class="col-6">
-                Ahorro diario: {{ $diario }}
+                Ahorro diario: {{ number_format($diario,2) }}
             </div>
         </div>
         <form action="/ahorro/ver/{{ $ahorro->id }}/guardar" method="POST">
