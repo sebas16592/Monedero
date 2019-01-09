@@ -34,7 +34,9 @@ class AhorroController extends Controller
         $carbon1 = new \Carbon\Carbon(date('Y-m-d'));
         $diasrestantes=$carbon1->diffInDays($carbon2);
         $diario=($ahorro->total-$ahorro->ahorrado)/$diasrestantes;
-        return view('ahorro.ver',['ahorro'=>$ahorro,'restantes'=>$diasrestantes,'diario'=>$diario]);
+        $ahorroDetalle=AhorroDetalle::where('ahorro_id', $ahorro->id)->get();
+
+        return view('ahorro.ver',['ahorro'=>$ahorro,'restantes'=>$diasrestantes,'diario'=>$diario,'ahorroDetalle'=>$ahorroDetalle]);
     }
 
     function ahorroVerGuardar(Ahorro $ahorro,Request $request){
