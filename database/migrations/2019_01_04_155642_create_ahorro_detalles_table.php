@@ -15,6 +15,9 @@ class CreateAhorroDetallesTable extends Migration
     {
         Schema::create('ahorro_detalles', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('ahorro_id')->unsigned();
+            $table->foreign('ahorro_id')->references('id')->on('ahorros');
+            $table->integer('valor');
             $table->timestamps();
         });
     }

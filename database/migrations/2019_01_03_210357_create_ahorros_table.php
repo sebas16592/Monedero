@@ -20,7 +20,7 @@ class CreateAhorrosTable extends Migration
             $table->string('nombre');
             $table->integer('ahorrado');
             $table->integer('total');
-            $table->date('fecha');
+            $table->timestamp('fecha');
             $table->timestamps();
         });
     }

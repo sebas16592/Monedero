@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Ahorro;
+use App\AhorroDetalle;
 
 class AhorroController extends Controller
 {
@@ -37,6 +38,11 @@ class AhorroController extends Controller
     }
 
     function ahorroVerGuardar(Ahorro $ahorro,Request $request){
+
+        AhorroDetalle::create([
+            'ahorro_id'=>$ahorro->id,
+            'valor'=>$request->input('ahorro')
+        ]);
         $ahorro->ahorrado=$ahorro->ahorrado+$request->input('ahorro');
         $ahorro->save();
         return redirect('ahorro/ver/'.$ahorro->id);

@@ -13,4 +13,9 @@ class Ahorro extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function ahorroDetalle()
+    {
+        return $this->hasMany(AhorroDetalle::class);
+    }
 }
